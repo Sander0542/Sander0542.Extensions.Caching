@@ -17,13 +17,12 @@ namespace Sander0542.Extensions.Caching.EntityFramework
 
         private readonly TContext _dbContext;
         private readonly IDatabaseOperations _dbOperations;
-        private readonly ISystemClock _systemClock;
-
-        private readonly TimeSpan _expiredItemsDeletionInterval;
-        private DateTimeOffset _lastExpirationScan;
-        private readonly Action _deleteExpiredCachedItemsDelegate;
         private readonly TimeSpan _defaultSlidingExpiration;
+        private readonly Action _deleteExpiredCachedItemsDelegate;
+        private readonly TimeSpan _expiredItemsDeletionInterval;
         private readonly object _mutex = new object();
+        private readonly ISystemClock _systemClock;
+        private DateTimeOffset _lastExpirationScan;
 
         public EntityFrameworkCache(TContext dbContext, IOptions<EntityFrameworkCacheOptions> options)
         {
