@@ -24,6 +24,8 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
         public byte[] GetCacheItem(string key)
         {
             var utcNow = _systemClock.UtcNow;
+            
+            RefreshCacheItem(key);
 
             return _dbContext.DistributedCaches
                 .WhereId(key)
@@ -38,6 +40,8 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
             token.ThrowIfCancellationRequested();
 
             var utcNow = _systemClock.UtcNow;
+
+            await RefreshCacheItemAsync(key, token);
 
             return await _dbContext.DistributedCaches
                 .WhereId(key)
@@ -56,7 +60,7 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
                 .WhereActive(utcNow)
                 .Where(cache1 => cache1.SlidingExpirationInSeconds != null)
                 .FirstOrDefault(cache1 => cache1.AbsoluteExpiration == null || cache1.AbsoluteExpiration != cache1.ExpiresAtTime);
-            
+
             if (cache == null) return;
 
             RefreshCache(cache, utcNow);
@@ -76,7 +80,7 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
                 .WhereActive(utcNow)
                 .Where(cache1 => cache1.SlidingExpirationInSeconds != null)
                 .FirstOrDefaultAsync(cache1 => cache1.AbsoluteExpiration == null || cache1.AbsoluteExpiration != cache1.ExpiresAtTime, token);
-            
+
             if (cache == null) return;
 
             RefreshCache(cache, utcNow);
@@ -150,7 +154,7 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
                 cache.ExpiresAtTime = utcNow.AddSeconds(cache.SlidingExpirationInSeconds.Value);
                 return;
             }
-            
+
             var absoluteExpiration = cache.AbsoluteExpiration.Value;
             var dateDiff = (absoluteExpiration - utcNow).TotalSeconds;
             var slidingExpirationInSeconds = cache.SlidingExpirationInSeconds.GetValueOrDefault(0);
@@ -180,7 +184,7 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Operations
                 Value = value,
                 ExpiresAtTime = options.SlidingExpiration.HasValue ? utcNow.Add(options.SlidingExpiration.Value) : absoluteExpiration.Value,
                 AbsoluteExpiration = absoluteExpiration,
-                SlidingExpirationInSeconds = options.SlidingExpiration.HasValue ? (int?)options.SlidingExpiration.Value.TotalSeconds : null
+                SlidingExpirationInSeconds = (int?)options.SlidingExpiration?.TotalSeconds
             };
         }
 
