@@ -8,6 +8,9 @@
         <AssemblyName>Sander0542.Extensions.Caching.EntityFramework</AssemblyName>
         <PackageId>Sander0542.Extensions.Caching.EntityFramework</PackageId>
         <PackageTags>cache;distributedcache;entity-framework-core;ef;efcore;core</PackageTags>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     </PropertyGroup>
 
     <PropertyGroup>
