@@ -2,7 +2,7 @@
     <PropertyGroup>
         <Authors>Sander0542</Authors>
 
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/Sander0542/Sander0542.Extensions.Caching</PackageProjectUrl>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageTags>cache;distributedcache</PackageTags>
@@ -12,10 +12,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="$(MSBuildThisFileDirectory)/LICENSE">
+        <Content Include="$(MSBuildThisFileDirectory)/LICENSE.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <Pack>true</Pack>
-            <PackagePath>LICENSE</PackagePath>
+            <PackagePath>LICENSE.txt</PackagePath>
             <Visible>false</Visible>
         </Content>
     </ItemGroup>
