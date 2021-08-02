@@ -18,8 +18,6 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Tests
         private const int DefaultValueColumnWidth = 8000;
         private const int CacheItemIdColumnWidth = 499;
 
-        private int _dbName = 1;
-
         [Fact]
         public async Task ReturnsNullValue_ForNonExistingCacheItem()
         {
@@ -631,8 +629,8 @@ namespace Sander0542.Extensions.Caching.EntityFramework.Tests
                 options = GetCacheOptions();
             }
 
-            var context = new TestDbContext(new DbContextOptionsBuilder<TestDbContext>().UseInMemoryDatabase((_dbName++).ToString()).Options);
-            context.Database.EnsureCreated();
+            var context = new TestDbContext(new DbContextOptionsBuilder<TestDbContext>().UseInMemoryDatabase(Guid.NewGuid().ToString()).Options);
+            Assert.True(context.Database.EnsureCreated());
 
             return new EntityFrameworkCache<TestDbContext>(context, options);
         }
