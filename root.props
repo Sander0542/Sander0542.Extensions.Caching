@@ -1,7 +1,11 @@
 ﻿<Project>
     <PropertyGroup>
         <Authors>Sander0542</Authors>
-
+        <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <NoWarn>$(NoWarn);CS1591;NU5105;NU5125</NoWarn>
+        <Nullable>annotations</Nullable>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
         <PackageProjectUrl>https://github.com/Sander0542/Sander0542.Extensions.Caching</PackageProjectUrl>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
