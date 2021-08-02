@@ -1,5 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{63F75859-4698-4EDE-8B70-4ACBB8BC425A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sander0542.Extensions.Caching.EntityFramework", "src\Sander0542.Extensions.Caching.EntityFramework\Sander0542.Extensions.Caching.EntityFramework.csproj", "{4CF45EDB-6F3E-40EE-A0C9-FDEBD828B064}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C05EF586-A276-4F11-B0AA-EE7305107B0D}"
