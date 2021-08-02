@@ -1,33 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="../src.props"/>
+
     <PropertyGroup>
         <Description>Distributed cache implementation of Microsoft.Extensions.Caching.Distributed.IDistributedCache using Entity Framework.</Description>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>Sander0542.Extensions.Caching.EntityFramework</AssemblyName>
-        <PackageProjectUrl>https://github.com/Sander0542/Sander0542.Extensions.Caching</PackageProjectUrl>
         <PackageId>Sander0542.Extensions.Caching.EntityFramework</PackageId>
         <PackageTags>cache;distributedcache;entity-framework-core;ef;efcore;core</PackageTags>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/Sander0542/Sander0542.Extensions.Caching</RepositoryUrl>
-        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-        <Version>1.0.0</Version>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
-    
+
     <PropertyGroup>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-</PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DefineConstants>DEBUG;TRACE</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
-        <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="5.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0"/>
     </ItemGroup>
 
 </Project>

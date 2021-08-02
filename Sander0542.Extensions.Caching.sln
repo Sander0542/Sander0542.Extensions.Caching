@@ -4,13 +4,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		README.md = README.md
+		root.props = root.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sander0542.Extensions.Caching.EntityFramework", "src\Sander0542.Extensions.Caching.EntityFramework\Sander0542.Extensions.Caching.EntityFramework.csproj", "{4CF45EDB-6F3E-40EE-A0C9-FDEBD828B064}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C05EF586-A276-4F11-B0AA-EE7305107B0D}"
+				ProjectSection(SolutionItems) = preProject
+								src\src.props = src\src.props
+				EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2F3E6DEF-EA9C-4B19-BEFC-0B904811C3E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2F3E6DEF-EA9C-4B19-BEFC-0B904811C3E7}"
+				ProjectSection(SolutionItems) = preProject
+								test\src.props = test\test.props
+				EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sander0542.Extensions.Caching.EntityFramework.Tests", "test\Sander0542.Extensions.Caching.EntityFramework.Tests\Sander0542.Extensions.Caching.EntityFramework.Tests.csproj", "{07D954EF-907B-49E3-B987-E1D3FBB12958}"
 EndProject
