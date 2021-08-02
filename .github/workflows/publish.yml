@@ -53,9 +53,26 @@ jobs:
           name: nupkg
           path: nupkg
 
+  test:
+    name: 'Test'
+    needs: [ build, generateVersionInfo ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+      - name: 'Download version info file'
+        uses: actions/download-artifact@v1
+        with:
+          name: gitversion
+          path: ./
+      - name: 'Inject version info into environment'
+        run: cat ./gitversion.env >> $GITHUB_ENV
+      - name: 'Run tests'
+        run: echo "Current version is \"$GitVersion_SemVer\"" && dotnet test -c Release
+
   publish:
     name: 'Publish'
-    needs: [ build, generateVersionInfo ]
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
